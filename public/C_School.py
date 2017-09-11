@@ -36,3 +36,4 @@ class Curriculum():
         self.price = price
         self.info = info
         self.school = school_obj
+ class 
