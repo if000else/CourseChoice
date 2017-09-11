@@ -5,7 +5,7 @@ class School():
         self.city = city
 
 
-class Class():
+class Classes():
     def __init__(self,name,semester,date,school_obj):
         self.name = name
         self.semester = semester
@@ -30,10 +30,25 @@ class Class():
     @students.setter # create students
     def students(self,value):
         print("create students:",value)
-class Curriculum():
+class Course():
     def __init__(self,name,price,info,school_obj):
         self.name = name
         self.price = price
         self.info = info
         self.school = school_obj
- class 
+class ClassRecord():
+    def __init__(self,date,class_obj):
+        self.date = date
+        self.class_obj = class_obj
+class StudyRecord():
+    def __init__(self,date,grade,cRecord_obj,sign=True):
+        self.date = date
+        self.sign = sign
+        self.grade = grade
+        self.c_Record = cRecord_obj
+class Student():
+    def __init__(self,name,age,password,school_obj):
+        self.name = name
+        self.age = age
+        self.password = password
+        self.school = school_obj

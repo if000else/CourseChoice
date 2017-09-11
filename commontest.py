@@ -1,4 +1,4 @@
-import pickle,json
+import pickle
 class A():
     def __init__(self,name):
         self.name = name
