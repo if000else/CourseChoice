@@ -21,9 +21,9 @@ Welcome To Course Choice System!
 [1]. I am a student
 [2]. I am a teacher
 [3]. I am administrator
+[4]. sign out
 [q]. Quit
-[choose the role you act as ] :
-
+[Please choose role] :
 '''
 students = '''
 1. choose course

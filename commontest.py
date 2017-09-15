@@ -2,14 +2,20 @@ import pickle
 class A():
     def __init__(self,name):
         self.name = name
-
-    def ttt(*args):
-        print(len(args))
-        print(args[1])
-a = A("Dongfang")
-setattr(a,"age",18)
-setattr(a,"sex","man")
-# b = A("Yizhong")
-pickle.dump(a,open('pictest.db','wb'))
-# a= pickle.load(open("pictest.pkl",'rb'))
-print()
+    def talk(self):
+        print(" %s is talking"%self.name)
+class B():
+    def __init__(self,name):
+        self.name = name
+    def talk(self):
+        print(" %s is talking"%self.name)
+# a = A("alex")
+# b = B("rockie")
+# obj_list = []
+# obj_list.append(a)
+# obj_list.append(b)
+# with open('objs.db','wb') as f:
+#     pickle.dump(obj_list,f)
+with open("objs.db",'rb') as f:
+    obj = pickle.load(f)
+print(obj[1].talk())
