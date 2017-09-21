@@ -1,34 +1,27 @@
-import os,logging
+import os,logging,pickle
 from conf import settings
 # Path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # PathOfDate = os.path.join(Path,"data")
-UserPath = '%s/user_info.txt'%settings.DateFile
-def users_op(user,psd,op,admin='0'):
+def find_data(folder,filename=None):
     '''
-    read and write user info from/to file
-    :param user:
-    :param psd:
-    :param op: flag "read" and "write"
-    :param admin: flag
+    load data ,return file data while filename exist,else return all filename in this dir.
+    :param folder:
+    :param filename:
     :return:
     '''
-    if op == 'write':#write request
-        with open(UserPath,'a+') as f:
-            f.write('%s,%s,%s\n'%(user,psd,admin))
-            print("generate user successfully!")
-        return None
-    elif op=='read':#read request
-        users = {}
-        with open(UserPath,'r') as f:
-            for line in f:
-                item = line.strip().split(",")
-                userdic = {item[0]:(item[1],item[2])}
-                users.update(userdic)
-        print(users)
-        return users
+    url = "%s/%s"%(settings.DateFile,folder)
+    find_all = os.listdir(url)
+    if filename:
+        if filename in find_all:
+            file_path = '%s/%s'%(url,filename)
+            with open(file_path,'rb') as f:
+                find_one = pickle.load(f)
+            return find_one
+    else:
+        return find_all
 
 
-import logging
+
 def logger(log_type):
     # create logger
     logger = logging.getLogger(log_type)
