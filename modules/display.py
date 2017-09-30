@@ -13,7 +13,7 @@ def colordisplay(*args):
     elif args[1] == 'blue':
      print("\033[1;34;1m%s\033[0m"%args[0])#blue
     elif args[1] == 'purple':
-     print("\033[1;34;1m%s\033[0m"%args[0])#purple
+     print("\033[1;35;1m%s\033[0m"%args[0])#purple
     else:
      print("\033[1;30;1m%s\033[0m"%args[0])#white
 role = '''
@@ -30,22 +30,23 @@ entry = {'1':"op_students()",
          'q':"exit()"}
 
 students = '''
-1. choose course
-2. having class
-3. my info
+1. Show My Info
+2. Enroll
+3. Learning
 4. back
 
 '''
 teachers = '''
-1. choose course
-2. having class
-3. my info
-4. see my remarks
+1. Show My Info
+2. Enroll
+3. Teaching
+4. See Class Members
 5. back
 '''
 admin = '''
-1. create school
-2. create class
-3. create course
-4. back
+1. create a school
+2. create a class
+3. create a course
+4. create a teacher
+5. back
 '''

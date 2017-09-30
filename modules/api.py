@@ -17,6 +17,9 @@ def find_data(folder,filename=None):
             with open(file_path,'rb') as f:
                 find_one = pickle.load(f)
             return find_one
+        else:
+            print("No items!")
+            return None
     else:
         return find_all
 
@@ -25,17 +28,17 @@ def find_data(folder,filename=None):
 def logger(log_type):
     # create logger
     logger = logging.getLogger(log_type)
-    logger.setLevel(10)
+    logger.setLevel(settings.LOG_LEVEL)
 
     # create console handler and set level to debug
 
     if not logger.handlers:
         ch = logging.StreamHandler()  # print to screen
-        ch.setLevel(10)
+        ch.setLevel(settings.LOG_LEVEL)
         # create file handler and set level to warning
-        log_file = "events.log"
+        log_file = "%s/events.log"%settings.LogFile
         fh = logging.FileHandler(log_file)#print to file
-        fh.setLevel(10)
+        fh.setLevel(settings.LOG_LEVEL)
         # create formatter
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
