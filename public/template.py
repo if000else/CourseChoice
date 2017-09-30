@@ -173,8 +173,11 @@ class People():
                         if ban:
                             new_class = Classes(ban['name'], ban['info'],
                                                     ban["school"], ban["course"])
+                            new_class.school =ban["school"]
+                            new_class.students = ban["students"]
+                            new_class.teachers = ban["teachers"]
                             if self.role == "teachers":
-                                if ban["teachers"]:
+                                if new_class.teachers:
                                     print("\033[1;31;1m One teacher has choose the course!\033[0m")
                                 else:
                                     self.school = choice1
@@ -249,13 +252,20 @@ class People():
                 for student in people:
                     stu_date = api.find_data("evaluations",student)
                     if stu_date:
-                        print("%s %s %s %s"%(stu_date["name"],stu_date["time_str"],
-                                             stu_date["course"],stu_date["remark"]))
+                        print("%s %s %s %s %s"%(stu_date["name"],stu_date["time_str"],
+                                             stu_date["course"],stu_date["remark"],
+                                             stu_date["grade"]))
                         grade_obj = StudyRecord(stu_date["name"],stu_date["course"])
                         grade_obj.time_str = stu_date["time_str"]
                         grade_obj.remark = stu_date["remark"]
                         grade_obj.grade = input("\033[1;33;1mInput grade for student %s:\033[0m"%grade_obj.name)
                         grade_obj.renew()
+                balance = float(self.money)
+                balance += 2000
+                self.money = str(balance)
+                self.renew()
+                print("\033[1;33;1m Your money:%s\033[0m"%self.money)
+
             else:
                 print("\033[1;31;1m Please enroll first!\033[0m")
         else:
@@ -282,7 +292,7 @@ class People():
             print("\033[1;33;1m Creating new one named %s ...\033[0m" % self.name)
         with open(path, 'wb') as f:
             data = dict(name=self.name, password=self.password, role=self.role,
-                        school=self.school, classes=self.classes, course=self.course, fee=self.money)
+                        school=self.school, classes=self.classes, course=self.course, money=self.money)
             pickle.dump(data, f)
 
 class Admin():

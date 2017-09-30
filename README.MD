@@ -112,3 +112,10 @@ users = '''
  main()
  
  login in: admin 123456
+ 
+ Notes: 
+ 
+        Input in English is strongly recommend.
+ 
+        All user's password is 123456
+        

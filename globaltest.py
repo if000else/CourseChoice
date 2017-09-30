@@ -7,5 +7,6 @@
 # p.password = "123456"
 # p.role = "admin"
 # p.renew()
-li = "sadfasd"
-li.split()
+li = "程序员修养养成，好书啊，800"
+li = li.split("，")
+print(li)

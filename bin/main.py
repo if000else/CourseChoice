@@ -73,7 +73,7 @@ def op_students():
     student.school = data["school"]
     student.classes = data["classes"]
     student.course = data["course"]
-    student.money = '10000'
+    student.money = data["money"]
     while True:
         choice = func.inpmsg(display.students,("1",'2','3','4'))
         if choice == '1':#Show My Info
@@ -103,7 +103,7 @@ def op_teachers():
     teacher.school = data["school"]
     teacher.classes = data["classes"]
     teacher.course = data["course"]
-    teacher.money = '10000'
+    teacher.money = data["money"]
     while True:
         choice = func.inpmsg(display.teachers,("1",'2','3','4','5'))
         if choice == '1':#Show My Info
